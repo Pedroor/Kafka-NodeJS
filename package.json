@@ -1,0 +1,24 @@
+{
+  "name": "kafka-sd",
+  "version": "1.0.0",
+  "description": "Trabalho de Sistemas Distribuidosutilizando kafka e nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start:producer": "node ./src/producer/index.js",
+    "start:consumer": "node ./src/consumer/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedroor/Kafka-NodeJS.git"
+  },
+  "author": "Github.com/Pedroor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pedroor/Kafka-NodeJS/issues"
+  },
+  "homepage": "https://github.com/Pedroor/Kafka-NodeJS#readme",
+  "dependencies": {
+    "avsc": "^5.7.3",
+    "node-rdkafka": "^2.11.0"
+  }
+}
