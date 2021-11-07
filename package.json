@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Trabalho de Sistemas Distribuidosutilizando kafka e nodejs",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:producer": "node ./src/producer/index.js",
     "start:consumer": "node ./src/consumer/index.js"
