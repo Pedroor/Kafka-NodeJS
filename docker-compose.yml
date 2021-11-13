@@ -1,5 +1,20 @@
 version: "3"
+
 services:
+  processing-center:
+    build: ./processingCenter
+    command: npm start
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./processingCenter:/usr/app
+  sensor:
+    build: ./sensor
+    command: npm start
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./sensor:/usr/app
   zookeeper:
     image: "bitnami/zookeeper:latest"
     ports:
