@@ -1,5 +1,5 @@
 import Kafka from "node-rdkafka";
-import eventType from "../eventType.js";
+import eventType from "../utils/eventType.js";
 
 const stream = Kafka.Producer.createWriteStream(
   {
