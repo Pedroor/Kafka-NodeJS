@@ -8,6 +8,8 @@ services:
       - "3001:3001"
     volumes:
       - ./processingCenter:/usr/app
+    depends_on:
+      - db
   sensor:
     build: ./sensor
     command: npm start
@@ -21,6 +23,20 @@ services:
       - "2181:2181"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+  db:
+    image: mongo:latest
+    container_name: db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${DB_PORT}:27030"
+    volumes:
+      - dbdata-volume:/data/db
+    environment:
+      MONGO_INITDB_USERNAME: "${DB_USERNAME}"
+      MONGO_INITDB_PASSWORD: "${DB_PASSWORD}"
+      MONGO_INITDB_DATABASE: "${DB_DATABASE}"
   kafka:
     image: "bitnami/kafka:latest"
     container_name: "kafka"
@@ -34,3 +50,5 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
+    volumes:
+      dbdata-volume:
